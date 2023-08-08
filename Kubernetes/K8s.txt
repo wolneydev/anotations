@@ -1,0 +1,75 @@
+Instruções Básicas para Kubernetes (K8s)
+Aqui estão algumas instruções essenciais para começar a trabalhar com o Kubernetes (K8s) localmente usando o Minikube:
+
+Iniciando o Cluster Local:
+
+Para iniciar o cluster local, utilize o comando:
+minikube start
+Criando Objetos no Kubernetes:
+
+.Para criar um objeto no Kubernetes, aplique o arquivo YAML correspondente:
+
+kubectl apply -f nome-arquivo.yaml
+Você também pode aplicar todos os arquivos YAML em uma pasta:
+
+kubectl apply -f nome-da-pasta-com-yamls
+
+Obtendo Informações dos Pods:
+
+Obtenha uma lista dos pods criados no cluster:
+kubectl get pods
+Visualizando Logs dos Pods:
+
+Para visualizar os logs de um pod específico:
+kubectl logs nome-do-pod
+Obtendo Informações sobre Serviços:
+
+Visualize os serviços criados no cluster:
+
+kubectl get services
+Mostrando o Endereço IP do Minikube:
+
+Descubra o endereço IP da máquina virtual Minikube:
+
+minikube ip
+Obtendo Detalhes sobre um Objeto:
+
+Para detalhes sobre um pod ou objeto específico:
+
+kubectl describe pod nome-do-pod
+Acessando um Serviço Exposto:
+
+Suponhamos que um serviço esteja expondo a porta 31515. Para acessá-lo:
+
+http://endereço-ip-do-minikube:31515/
+Excluindo um Objeto no Kubernetes:
+
+Para excluir um objeto previamente criado:
+
+kubectl delete -f nome-do-arquivo-de-configuração
+Executando o Terminal Docker na Máquina Virtual:
+
+Para rodar o terminal Docker na máquina virtual Minikube (necessário para construir imagens):
+
+eval $(minikube docker-env)
+Configurando Pasta SSH:
+
+Certifique-se de ter a pasta SSH criada:
+
+mkdir -p /home/wolney/.ssh
+Obtendo Padrões de Armazenamento:
+
+Para coletar informações sobre classes de armazenamento disponíveis:
+
+kubectl get storageclass
+Criando Secrets para Senhas:
+
+Para criar um secret para criptografar senhas de arquivos:
+
+kubectl create secret generic nome-do-secret --from-literal chave=valor
+Visualizando Secrets Criadas:
+
+Veja os secrets criados no cluster:
+
+kubectl get secrets
+Essas instruções básicas vão te ajudar a começar com o Kubernetes usando o Minikube. Lembre-se de consultar a documentação oficial do Kubernetes para explorar recursos mais avançados e compreender as práticas recomendadas.
